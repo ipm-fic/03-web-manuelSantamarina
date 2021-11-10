@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register-page.css">
+    <link rel="stylesheet" href="..\index.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="title-bar">
+        <button class="home">
+            <img src="..\assets/home_black_24dp.svg" alt="Home button.">
+        </button>
+        <div id="title">COVIDWeb</div>
+    </div>
+    <div id="background">
+        <div class="card">
+            <img src="assets/splash.svg" alt="Image of COVIDWeb logo">
+            <h1>Registro de usuario</h1>
+            <form action="">
+                <div class="inline-fields">
+                    <strong>Nombre</strong>
+                    <input class="field-column" type="text" name="name">
+                    <strong>Apellido</strong>
+                    <input class="field-column field-inline" type="surname" name="surname">
+                </div>
+                <div class="inline-fields">
+                    <strong>Correo electrónico</strong>
+                    <input class="field-column" type="text" name="email">
+                    <strong>Confirmar correo electrónico</strong>
+                    <input class="field-column field-inline" type="email-confirmation" name="username" id="input-username">
+                </div>
+                <strong>Nombre de usuario</strong>
+                <input class="field-column" type="text" name="username" id="input-username">
+                <div class="inline-fields">
+                    <strong>Contraseña</strong>
+                    <input class="field-column" type="password" name="password" id="input-password">
+                    <strong>Confirmar contraseña</strong>
+                    <input class="field-column field-inline" type="password-confirmation" name="password" id="input-password">
+                </div>
+                <strong>Teléfono</strong>
+                <input class="field-column" type="password" name="telephone-number" id="input-password">
+                <div class="radio-field field-column">
+                    <strong>¿Estás vacunado?</strong>
+                    
+                    <div class="radio-buttons">
+                        <input type="radio" name="vaccinated" id=""><label for="yes">Sí</label>
+                        <input type="radio" name="vaccinated" id=""><label for="no">No</label>
+                    </div>
+                </div>
+                <button class="confirm-button"><strong>Registrarse</strong></button>
+                
+            </form>
+            
+        </div>
+    </div>
+</html>

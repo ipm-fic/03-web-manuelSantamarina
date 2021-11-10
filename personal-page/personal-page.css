@@ -1,0 +1,11 @@
+.info-field-title{
+    font-size: 1em;
+    display:block;
+}
+.info-field-text{
+    font-size:1.2em;
+    font-weight: 700;
+}
+td{
+    padding:8px;
+}

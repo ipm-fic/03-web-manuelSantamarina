@@ -1,0 +1,24 @@
+
+radio-buttons{
+    display: inline-block;
+}
+
+field-inline{
+    display:inline;
+}
+field-column{
+    display:inline;
+    padding:20px;
+}
+
+inline-fields{
+    width: 100%;
+    display:inline-block;
+}
+
+confirm-button{
+    float:right;
+    display: block;
+    font-size: 30px;
+    background-color:red;
+}
