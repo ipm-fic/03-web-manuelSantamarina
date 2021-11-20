@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>COVIDWeb</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <title>COVIDWeb</title>
+    </head>
+    <body>
         <div id="title-bar">
             <button class="home">
                 <img src="assets/home_black_24dp.svg" alt="Home button.">
@@ -18,18 +18,26 @@
             <div class="card">
                 <img src="assets/splash.svg" alt="Image of COVIDWeb logo">
                 <h1>Iniciar sesión</h1>
-                <form action="">
+                <form onsubmit="doLogin(event)">
                     <strong>Nombre de usuario</strong>
-                    <input class="field-column" type="text" name="username" id="input-username">
+                    <input class="field-column" type="text" name="username" id="input-username" required>
                     <strong>Contraseña</strong>
-                    <input class="field-column" type="password" name="password" id="input-password">
+                    <input class="field-column" type="password" name="password" id="input-password" required>
                     <button class="padded"><strong>Iniciar sesión</strong></button>
                     
                 </form>
-                
-                <p>¿No tienes cuenta en COVIDWeb? <a href="http://"><strong>Regístrate</strong></a></p>
+                <div class="alertBox"></div>
+                <p>¿No tienes cuenta en COVIDWeb? <a href="./register-page/register-page.html"><strong>Regístrate</strong></a></p>
                 
             </div>
         </div>
-</body>
+        <script type="text/javascript">
+            let userId = localStorage.getItem('sessionId');
+            if(userId != null) {
+                window.location.replace("./personal-page/personal-page.html");
+            }
+        </script>
+        <script src="model.js" type="text/javascript"></script>
+        <script src="controller.js" type="text/javascript"></script>
+    </body>
 </html>

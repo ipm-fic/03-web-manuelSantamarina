@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="register-page.css">
-    <link rel="stylesheet" href="..\index.css">
-    
-    <title>Document</title>
-</head>
-<body>
-    <div id="title-bar">
-        <button class="home">
-            <img src="..\assets/home_black_24dp.svg" alt="Home button.">
-        </button>
-        <div id="title">COVIDWeb</div>
-    </div>
-    <div id="background">
-        <div class="card">
-            <img src="assets/splash.svg" alt="Image of COVIDWeb logo">
-            <h1>Registro de usuario</h1>
-            <form action="">
-                <div class="inline-fields">
-                    <strong>Nombre</strong>
-                    <input class="field-column" type="text" name="name">
-                    <strong>Apellido</strong>
-                    <input class="field-column field-inline" type="surname" name="surname">
-                </div>
-                <div class="inline-fields">
-                    <strong>Correo electrónico</strong>
-                    <input class="field-column" type="text" name="email">
-                    <strong>Confirmar correo electrónico</strong>
-                    <input class="field-column field-inline" type="email-confirmation" name="username" id="input-username">
-                </div>
-                <strong>Nombre de usuario</strong>
-                <input class="field-column" type="text" name="username" id="input-username">
-                <div class="inline-fields">
-                    <strong>Contraseña</strong>
-                    <input class="field-column" type="password" name="password" id="input-password">
-                    <strong>Confirmar contraseña</strong>
-                    <input class="field-column field-inline" type="password-confirmation" name="password" id="input-password">
-                </div>
-                <strong>Teléfono</strong>
-                <input class="field-column" type="password" name="telephone-number" id="input-password">
-                <div class="radio-field field-column">
-                    <strong>¿Estás vacunado?</strong>
-                    
-                    <div class="radio-buttons">
-                        <input type="radio" name="vaccinated" id=""><label for="yes">Sí</label>
-                        <input type="radio" name="vaccinated" id=""><label for="no">No</label>
-                    </div>
-                </div>
-                <button class="confirm-button"><strong>Registrarse</strong></button>
-                
-            </form>
-            
-        </div>
-    </div>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="register-page.css">
+		<link rel="stylesheet" href="../index.css">
+		<title>COVIDWeb</title>
+	</head>
+	<body>
+		<div id="title-bar">
+			<button class="home">
+				<img src="..\assets/home_black_24dp.svg" alt="Home button.">
+			</button>
+			<div id="title">COVIDWeb</div>
+		</div>
+		<div id="background">
+			<div class="card">
+				<img src="assets/splash.svg" alt="Image of COVIDWeb logo">
+				<h1>Registro de usuario</h1>
+				<form onSubmit="doSignUp(event)">
+					<div class="inline-fields">
+						<strong>Nombre</strong>
+						<input class="field-column" type="text" minlength="4" name="name" id="input-name" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" required>
+						<strong>Apellido</strong>
+						<input class="field-column field-inline" minlength="1" type="surname" id="input-surname" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" name="surname" required>
+					</div>
+					<div class="inline-fields">
+						<strong>Correo electrónico</strong>
+						<input class="field-column" type="email" name="email" minlength="1" id="input-email" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+						<strong>Confirmar correo electrónico</strong>
+						<input class="field-column field-inline" type="email" minlength="1" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" name="username" id="input-email-confirm" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+					</div>
+					<strong>Nombre de usuario</strong>
+					<input class="field-column" type="text" name="username" minlength="4" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" id="input-username" required>
+					<div class="inline-fields">
+						<strong>Contraseña</strong>
+						<input class="field-column" type="password" name="password" minlength="8" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" id="input-password" required>
+						<strong>Confirmar contraseña</strong>
+						<input class="field-column field-inline" type="password" minlength="8" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" name="password" id="input-password-confirm" required>
+					</div>
+					<strong>Teléfono</strong>
+					<input class="field-column" type="tel" name="telephone-number" onchange="doCheckSignUpForm(event)" onkeyup="doCheckSignUpForm(event)" id="input-phone" placeholder="012345678" pattern="[0-9]{9}">
+					<div class="radio-field field-column">
+						<strong>¿Estás vacunado?</strong>
+						
+						<div class="radio-buttons">
+							<input type="radio" name="vaccinated" id="input-vaccinated" onchange="doCheckSignUpForm(event)" value="true"><label for="yes">Sí</label>
+							<input type="radio" name="vaccinated" id="input-vaccinated" onchange="doCheckSignUpForm(event)" value="false" checked><label for="no">No</label>
+						</div>
+					</div>
+					<button class="confirm-button" onchange="doCheckSignUpForm(event)" type="submit"><strong>Registrarse</strong></button>
+				</form>
+			</div>
+		</div>
+		<div class="alertBox"></div>
+		<script type="text/javascript">
+            let userId = localStorage.getItem('sessionId');
+            if(userId != null) {
+                window.location.replace("./personal-page/personal-page.html");
+            }
+        </script>
+        <script src="../model.js" type="text/javascript"></script>
+        <script src="../controller.js" type="text/javascript"></script>
+	</body>
 </html>
