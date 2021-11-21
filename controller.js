@@ -132,6 +132,7 @@ async function doSignUp(e) {
 async function doCheckUsernameExists(username) { //goldenbird345
     let username_field = document.getElementById("input-username");
     let alertBox = document.querySelectorAll(".alertBox")[0];
+    let username_error = document.querySelector(".username-error");
 
     let u = await fetchUsers();
     let exists = false;
@@ -140,14 +141,10 @@ async function doCheckUsernameExists(username) { //goldenbird345
         alertBox.innerHTML="¡Error de conexión!";
     }
 
-    if(u["users"] == "" && u["users"]) { //Incorrect login
-        alertBox.innerHTML="Usuario y/o contraseña incorrectos.";
-    }
-
     if(u["users"] != "" && u["users"]) { //Ok!
         u["users"].forEach(user => {
             if (user['username'] == username) {
-                alertBox.innerHTML = "¡El nombre de usuario ya existe!";
+                username_error.innerHTML = "¡El nombre de usuario ya existe!";
                 username_field.style.borderColor = "red";
                 exists = true;
             }
