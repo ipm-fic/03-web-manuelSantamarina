@@ -231,6 +231,11 @@ function doLogOut(e) {
     }, 5000);
 }
 
+function clearError(e) {
+    let s = document.querySelector(e.replace("input-") + "_error");
+    s.innerHTML = "";
+}
+
 function goHome() {
     window.location.replace(homePage);
 }
