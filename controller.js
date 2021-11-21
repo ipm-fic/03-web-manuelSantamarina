@@ -24,7 +24,7 @@ async function doLogin(e) {
         localStorage.setItem("sessionId", userId);
         setTimeout(function() {
             window.location.replace(loginRedirectPage);
-        }, 5000);
+        }, 2500);
     }
 }
 
@@ -142,7 +142,7 @@ async function doSignUp(e) {
         alertBox.innerHTML="Registro correcto, redireccionando...";
         setTimeout(function() {
             window.location.replace(homePage);
-        }, 5000);
+        }, 2500);
     }
     
 }
@@ -198,7 +198,7 @@ function checkEmails() {
     if(email.value != emailConfirm.value) {
         email_confirm_error.innerHTML = "¡Los emails no coinciden!";
         emailConfirm.style.borderColor = "red";
-    }else {
+    }else{
         email_confirm_error.innerHTML = "";
         emailConfirm.style.borderColor = "green";
     }
