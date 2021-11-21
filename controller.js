@@ -230,3 +230,7 @@ function doLogOut(e) {
         window.location.replace(homePage);
     }, 5000);
 }
+
+function goHome() {
+    window.location.replace(homePage);
+}
