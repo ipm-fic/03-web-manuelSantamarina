@@ -22,35 +22,42 @@
 				<form onSubmit="doSignUp(event)">
 					<div class="inline-fields">
 						<strong>Nombre</strong>
-						<input class="field-column" type="text" minlength="4" name="name" id="input-name" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" required>
+						<input class="field-column" type="text" minlength="4" name="name" id="input-name" required>
+						<div class="name-error"></div>
 						<strong>Apellido</strong>
-						<input class="field-column field-inline" minlength="1" type="surname" id="input-surname" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" name="surname" required>
+						<input class="field-column field-inline" minlength="1" type="surname" id="input-surname" name="surname" required>
+						<div class="surname-error"></div>
 					</div>
 					<div class="inline-fields">
 						<strong>Correo electrónico</strong>
-						<input class="field-column" type="email" name="email" minlength="1" id="input-email" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+						<input class="field-column" type="email" name="email" minlength="1" id="input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+						<div class="email-error"></div>
 						<strong>Confirmar correo electrónico</strong>
-						<input class="field-column field-inline" type="email" minlength="1" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" name="username" id="input-email-confirm" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+						<input class="field-column field-inline" type="email" minlength="1" name="username" id="input-email-confirm" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+						<div class="email-confirm-error"></div>
 					</div>
 					<strong>Nombre de usuario</strong>
-					<input class="field-column" type="text" name="username" minlength="4" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" id="input-username" required>
+					<input class="field-column" type="text" name="username" minlength="4" id="input-username" required>
+					<div class="username-error"></div>
 					<div class="inline-fields">
 						<strong>Contraseña</strong>
-						<input class="field-column" type="password" name="password" minlength="8" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" id="input-password" required>
+						<input class="field-column" type="password" name="password" minlength="8" id="input-password" required>
+						<div class="pass-error"></div>
 						<strong>Confirmar contraseña</strong>
-						<input class="field-column field-inline" type="password" minlength="8" onchange="doCheckSignUpForm(event)" onkeypress="doCheckSignUpForm(event)" name="password" id="input-password-confirm" required>
+						<input class="field-column field-inline" type="password" minlength="8" name="password" id="input-password-confirm" required>
+						<div class="pass-confirm-error"></div>
 					</div>
 					<strong>Teléfono</strong>
-					<input class="field-column" type="tel" name="telephone-number" onchange="doCheckSignUpForm(event)" onkeyup="doCheckSignUpForm(event)" id="input-phone" placeholder="012345678" pattern="[0-9]{9}">
+					<input class="field-column" type="tel" name="telephone-number" id="input-phone" placeholder="012345678" pattern="[0-9]{9}">
 					<div class="radio-field field-column">
 						<strong>¿Estás vacunado?</strong>
 						
 						<div class="radio-buttons">
-							<input type="radio" name="vaccinated" id="input-vaccinated" onchange="doCheckSignUpForm(event)" value="true"><label for="yes">Sí</label>
-							<input type="radio" name="vaccinated" id="input-vaccinated" onchange="doCheckSignUpForm(event)" value="false" checked><label for="no">No</label>
+							<input type="radio" name="vaccinated" id="input-vaccinated" value="true"><label for="yes">Sí</label>
+							<input type="radio" name="vaccinated" id="input-vaccinated" value="false" checked><label for="no">No</label>
 						</div>
 					</div>
-					<button class="confirm-button" onchange="doCheckSignUpForm(event)" type="submit"><strong>Registrarse</strong></button>
+					<button class="confirm-button" type="submit"><strong>Registrarse</strong></button>
 				</form>
 			</div>
 		</div>

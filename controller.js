@@ -103,6 +103,7 @@ async function doSignUp(e) {
 
     let w = await doCheckUsernameExists(username);
 
+    doCheckSignUpForm();
 
     if(!(username.length > 0 && name.length >= 4 && surname.length > 0 && password == passwordConfirm && email == emailConfirm && password.length >= 8 && email.length > 0 && !w))
         return;
@@ -155,7 +156,7 @@ async function doCheckUsernameExists(username) { //goldenbird345
     return exists;
 }
 
-function doCheckSignUpForm(e) {
+function doCheckSignUpForm() {
     let username = document.getElementById("input-username");
     let name = document.getElementById("input-name");
     let surname = document.getElementById("input-surname");
@@ -163,38 +164,44 @@ function doCheckSignUpForm(e) {
     let passwordConfirm = document.getElementById("input-password-confirm");
     let email = document.getElementById("input-email");
     let emailConfirm = document.getElementById("input-email-confirm");
-    let alertBox = document.querySelectorAll(".alertBox")[0];
+    let name_error = document.querySelector(".name-error");
+    let surname_error = document.querySelector(".surname-error");
+    let username_error = document.querySelector(".username-error");
+    let pass_error = document.querySelector(".pass-error");
+    let pass_confirm_error = document.querySelector(".pass-confirm-error");
+    let email_error = document.querySelector(".email-error");
+    let email_confirm_error = document.querySelector(".email-confirm-error");
 
     if(username.value.length < 4) {
-        alertBox.innerHTML = "¡El campo del nombre de usuario tiene que tener al menos 4 carácteres!";
+        username_error.innerHTML = "¡El campo del nombre de usuario tiene que tener al menos 4 carácteres!";
         username.style.borderColor = "red";
     }else{
         username.style.borderColor = "green";
     }
 
     if(name.value.length <= 0) {
-        alertBox.innerHTML = "¡El campo del nombre no puede estar vacío!";
+        name_error.innerHTML = "¡El campo del nombre no puede estar vacío!";
         name.style.borderColor = "red";
     }else{
         name.style.borderColor = "green";
     }
 
     if(surname.value.length <= 0) {
-        alertBox.innerHTML = "¡El campo de los apellidos no puede estar vacío!";
+        surname_error.innerHTML = "¡El campo de los apellidos no puede estar vacío!";
         surname.style.borderColor = "red";
     }else{
         surname.style.borderColor = "green";
     }
 
     if(password.value.length < 8) {
-        alertBox.innerHTML = "¡La contraseña tiene que tener al menos 8 carácteres!";
+        pass_error.innerHTML = "¡La contraseña tiene que tener al menos 8 carácteres!";
         password.style.borderColor = "red";
     }else{
         password.style.borderColor = "green";
     }
 
     if(password.value != passwordConfirm.value || password.value.length < 8) {
-        alertBox.innerHTML = "¡Las contraseñas no coinciden!";
+        pass_confirm_error.innerHTML = "¡Las contraseñas no coinciden!";
         password.style.borderColor = "red";
         passwordConfirm.style.borderColor = "red";
     }else{
@@ -203,14 +210,14 @@ function doCheckSignUpForm(e) {
     }
 
     if(email.value.length <= 0) {
-        alertBox.innerHTML = "¡El email no puede estar vacío!";
+        email_error.innerHTML = "¡El email no puede estar vacío!";
         email.style.borderColor = "red";
     }else{
         email.style.borderColor = "green";
     }
 
     if(email.value != emailConfirm.value || email.value.length <= 0) {
-        alertBox.innerHTML = "¡Los emails no coinciden!";
+        email_confirm_error.innerHTML = "¡Los emails no coinciden!";
         email.style.borderColor = "red";
         emailConfirm.style.borderColor = "red";
     }else{
