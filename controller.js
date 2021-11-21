@@ -77,6 +77,11 @@ async function doLoadData() {
 
     if(f["access_log"] != null && f["access_log"]) { // Ok!
         f["access_log"]= f["access_log"].sort((function (a, b) { return new Date(b.timestamp) - new Date(a.timestamp) }));
+
+        if(f["access_log"].length <= 0) {
+            alertBox.innerHTML += "No hay datos del usuari@";
+        }
+
         for(let i = 0; i < f["access_log"].length; i++) {
             let nrow = document.createElement("tr");
             let nc_type = document.createElement("td");
