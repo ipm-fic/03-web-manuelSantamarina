@@ -48,10 +48,11 @@ async function doLoadData() {
     
     let u = await loadUserData(userId);
     let f = await loadUserAccess(userId, 0, 0);
+    alertBox.innerHTML="";
     if(u["error"] || !u["users"] || f["error"] || !f["access_log"]) {  //Error DB / Connection
         alertBox.innerHTML="¡Error de conexión!";
     }
-    alertBox.innerHTML="";
+    
     
     if(u["users"] != "" && u["users"]) { //Ok!
         name.innerHTML = u["users"][0]["name"];
