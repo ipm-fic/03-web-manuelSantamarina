@@ -47,13 +47,11 @@ async function doLoadData() {
         return;
     
     let u = await loadUserData(userId);
-    let f = await loadUserAccess(userId, 0, 10);
-
+    let f = await loadUserAccess(userId, 0, 0);
     if(u["error"] || !u["users"] || f["error"] || !f["access_log"]) {  //Error DB / Connection
         alertBox.innerHTML="¡Error de conexión!";
     }
     alertBox.innerHTML="";
-    
     
     if(u["users"] != "" && u["users"]) { //Ok!
         name.innerHTML = u["users"][0]["name"];
@@ -65,10 +63,9 @@ async function doLoadData() {
             vac.innerHTML = "No";
         else vac.innerHTML = "Sí";
 
-        var qrcodeText = "{"+u["users"][0]["name"]+"},{"+u["users"][0]["surname"]+"},{"+u["users"][0]["uuid"]+"}";
-        console.log(qrcodeText);
+        let qrcodeText = "{"+u["users"][0]["name"]+"},{"+u["users"][0]["surname"]+"},{"+u["users"][0]["uuid"]+"}";
 
-        var qrcode = new QRCode(document.getElementById("qrcode"), {
+        let qrcode =new QRCode(document.getElementById("qrcode"), {
             text: qrcodeText,
             width:128,
             height: 128,
@@ -78,7 +75,7 @@ async function doLoadData() {
         });
     }
 
-    if(f["access_log"] != "" && f["access_log"]) { // Ok!
+    if(f["access_log"] != null && f["access_log"]) { // Ok!
         f["access_log"]= f["access_log"].sort((function (a, b) { return new Date(b.timestamp) - new Date(a.timestamp) }));
         for(let i = 0; i < f["access_log"].length; i++) {
             let nrow = document.createElement("tr");
@@ -119,7 +116,7 @@ async function doSignUp(e) {
 
     let w = await doCheckUsernameExists(username);
 
-    doCheckSignUpForm();
+    doCheckSignUpForm(w);
 
     if(!(username.length > 0 && name.length >= 4 && surname.length > 0 && password == passwordConfirm && email == emailConfirm && password.length >= 8 && email.length > 0 && !w))
         return;
@@ -128,11 +125,11 @@ async function doSignUp(e) {
     
     let u = await addUser(username, password, name, surname, phone, email, is_vaccinated);
 
-    if(u["error"] || !u["insert_users_one"]) {      //Error DB / Connection
+    if(u["error"] || !u["insert_users_one"]) {                 //Error DB / Connection
         alertBox.innerHTML="¡Error de conexión!";
     }
 
-    if(u["insert_users_one"] == "" && u["insert_users_one"]) { //Incorrect login
+    if(u["insert_users_one"] == "" && u["insert_users_one"]) { //Incorrect sign up
         alertBox.innerHTML="Usuario y/o contraseña incorrectos.";
     }
 
@@ -166,36 +163,69 @@ async function doCheckUsernameExists(username) { //goldenbird345
             }
         });
     }
+
+    if(!exists) {
+        username_field.style.borderColor = "green";
+    }
+
     return exists;
 }
 
-function doCheckSignUpForm() {
+function checkPasswords() {
+    let password = document.getElementById("input-password");
+    let passwordConfirm = document.getElementById("input-password-confirm");
+    let pass_confirm_error = document.querySelector(".password-confirm-error");
+
+    if(password.value != passwordConfirm.value) {
+        pass_confirm_error.innerHTML = "¡Las contraseñas no coinciden!";
+        passwordConfirm.style.borderColor = "red";
+    }else {
+        pass_confirm_error.innerHTML = "";
+        passwordConfirm.style.borderColor = "green";
+    }
+}
+
+function checkEmails() {
+    let email = document.getElementById("input-email");
+    let emailConfirm = document.getElementById("input-email-confirm");
+    let email_confirm_error = document.querySelector(".email-confirm-error");
+
+    if(email.value != emailConfirm.value) {
+        email_confirm_error.innerHTML = "¡Los emails no coinciden!";
+        emailConfirm.style.borderColor = "red";
+    }else {
+        email_confirm_error.innerHTML = "";
+        emailConfirm.style.borderColor = "green";
+    }
+}
+
+function doCheckSignUpForm(w) {
     let username = document.getElementById("input-username");
     let name = document.getElementById("input-name");
     let surname = document.getElementById("input-surname");
     let password = document.getElementById("input-password");
-    let passwordConfirm = document.getElementById("input-password-confirm");
     let email = document.getElementById("input-email");
-    let emailConfirm = document.getElementById("input-email-confirm");
     let name_error = document.querySelector(".name-error");
     let surname_error = document.querySelector(".surname-error");
     let username_error = document.querySelector(".username-error");
-    let pass_error = document.querySelector(".pass-error");
-    let pass_confirm_error = document.querySelector(".pass-confirm-error");
+    let pass_error = document.querySelector(".password-error");
     let email_error = document.querySelector(".email-error");
-    let email_confirm_error = document.querySelector(".email-confirm-error");
 
     if(username.value.length < 4) {
         username_error.innerHTML = "¡El campo del nombre de usuario tiene que tener al menos 4 carácteres!";
         username.style.borderColor = "red";
     }else{
-        username.style.borderColor = "green";
+        if(!w) //Username not exists
+            username.style.borderColor = "green";
+        else
+            username.style.borderColor = "red";
     }
 
     if(name.value.length <= 0) {
         name_error.innerHTML = "¡El campo del nombre no puede estar vacío!";
         name.style.borderColor = "red";
     }else{
+        name_error.innerHTML = "";
         name.style.borderColor = "green";
     }
 
@@ -203,6 +233,7 @@ function doCheckSignUpForm() {
         surname_error.innerHTML = "¡El campo de los apellidos no puede estar vacío!";
         surname.style.borderColor = "red";
     }else{
+        surname_error.innerHTML = "";
         surname.style.borderColor = "green";
     }
 
@@ -210,45 +241,28 @@ function doCheckSignUpForm() {
         pass_error.innerHTML = "¡La contraseña tiene que tener al menos 8 carácteres!";
         password.style.borderColor = "red";
     }else{
+        pass_error.innerHTML = "";
         password.style.borderColor = "green";
-    }
-
-    if(password.value != passwordConfirm.value || password.value.length < 8) {
-        pass_confirm_error.innerHTML = "¡Las contraseñas no coinciden!";
-        password.style.borderColor = "red";
-        passwordConfirm.style.borderColor = "red";
-    }else{
-        password.style.borderColor = "green";
-        passwordConfirm.style.borderColor = "green";
     }
 
     if(email.value.length <= 0) {
         email_error.innerHTML = "¡El email no puede estar vacío!";
         email.style.borderColor = "red";
     }else{
+        email_error.innerHTML = "";
         email.style.borderColor = "green";
     }
 
-    if(email.value != emailConfirm.value || email.value.length <= 0) {
-        email_confirm_error.innerHTML = "¡Los emails no coinciden!";
-        email.style.borderColor = "red";
-        emailConfirm.style.borderColor = "red";
-    }else{
-        email.style.borderColor = "green";
-        emailConfirm.style.borderColor = "green";
-    }
 }
 
 function doLogOut(e) {
     e.preventDefault();
     localStorage.removeItem("sessionId");
-    setTimeout(function() {
-        window.location.replace(homePage);
-    }, 5000);
+    window.location.replace(homePage);
 }
 
 function clearError(e) {
-    let s = document.querySelector(e.replace("input-") + "_error");
+    let s = document.querySelector("."+(e.id).replace("input-", "") + "-error");
     s.innerHTML = "";
 }
 

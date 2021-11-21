@@ -80,7 +80,14 @@ async function login(username, password) {
 }
 
 async function loadUserAccess(userId, offset, limit) {
-	const url = 'http://' + ip + '/api/rest/user_access_log/'+userId+'?offset='+offset+'&limit='+limit;
+	let url = 'http://' + ip + '/api/rest/user_access_log/'+userId;
+	if(parseInt(offset) >= 0) {
+		url +='?offset='+offset;
+
+		if(parseInt(limit) > 0)
+			url +='&limit='+limit;
+	}
+
 	const request = {
 		headers:{
 			"x-hasura-admin-secret": "myadminsecretkey"

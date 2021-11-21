@@ -21,31 +21,31 @@
 				<h1>Registro de usuario</h1>
 				<form onSubmit="doSignUp(event)">
 					<div class="inline-fields">
-						<strong>Nombre</strong>
+						<strong>Nombre *</strong>
 						<input class="field-column" type="text" minlength="4" onkeyup="clearError(this)" name="name" id="input-name" required>
 						<div class="name-error"></div>
-						<strong>Apellido</strong>
+						<strong>Apellido *</strong>
 						<input class="field-column field-inline" minlength="1" onkeyup="clearError(this)" type="surname" id="input-surname" name="surname" required>
 						<div class="surname-error"></div>
 					</div>
 					<div class="inline-fields">
-						<strong>Correo electrónico</strong>
-						<input class="field-column" type="email" name="email" onkeyup="clearError(this)" minlength="1" id="input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+						<strong>Correo electrónico *</strong>
+						<input class="field-column" type="email" name="email" onkeyup="clearError(this);checkEmails()" minlength="1" id="input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
 						<div class="email-error"></div>
 						<strong>Confirmar correo electrónico</strong>
-						<input class="field-column field-inline" type="email" onkeyup="clearError(this)" minlength="1" name="username" id="input-email-confirm" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
+						<input class="field-column field-inline" type="email" onkeyup="clearError(this);checkEmails()" minlength="1" name="username" id="input-email-confirm" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
 						<div class="email-confirm-error"></div>
 					</div>
-					<strong>Nombre de usuario</strong>
-					<input class="field-column" type="text" name="username" onkeyup="clearError(this)" minlength="4" id="input-username" required>
+					<strong>Nombre de usuario *</strong>
+					<input class="field-column" type="text" name="username" onkeyup="clearError(this);doCheckUsernameExists(this.value)" minlength="4" id="input-username" required>
 					<div class="username-error"></div>
 					<div class="inline-fields">
-						<strong>Contraseña</strong>
-						<input class="field-column" type="password" name="password" onkeyup="clearError(this)" minlength="8" id="input-password" required>
-						<div class="pass-error"></div>
+						<strong>Contraseña *</strong>
+						<input class="field-column" type="password" name="password" onkeyup="clearError(this);checkPasswords()" minlength="8" id="input-password" required>
+						<div class="password-error"></div>
 						<strong>Confirmar contraseña</strong>
-						<input class="field-column field-inline" type="password" onkeyup="clearError(this)" minlength="8" name="password" id="input-password-confirm" required>
-						<div class="pass-confirm-error"></div>
+						<input class="field-column field-inline" type="password" onkeyup="clearError(this);checkPasswords()" minlength="8" name="password" id="input-password-confirm" required>
+						<div class="password-confirm-error"></div>
 					</div>
 					<strong>Teléfono</strong>
 					<input class="field-column" type="tel" name="telephone-number" id="input-phone" placeholder="012345678" pattern="[0-9]{9}">
