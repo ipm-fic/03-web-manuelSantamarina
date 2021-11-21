@@ -103,7 +103,6 @@ async function doSignUp(e) {
 
     let w = await doCheckUsernameExists(username);
 
-    console.log(w);
 
     if(!(username.length > 0 && name.length >= 4 && surname.length > 0 && password == passwordConfirm && email == emailConfirm && password.length >= 8 && email.length > 0 && !w))
         return;
