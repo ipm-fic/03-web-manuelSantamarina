@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="disable-personal-page.css">
-        <link rel="stylesheet" href="../disable-index.css">
+        <!-- <link rel="stylesheet" href="personal-page.css"> -->
+        <!-- <link rel="stylesheet" href="../index.css"> -->
+        <script src="../qrcodejs-master/qrcode.min.js"></script>
         <title>Página personal</title>
     </head>
     <body onload="doLoadData()">
@@ -14,7 +15,7 @@
             <div id="info-panel-container">
                 <div id="info-panel">
                     <h2>Mis datos</h2>
-                    <img src="https://via.placeholder.com/200" alt="">
+                    <div id="qrcode"></div>
                     <div class="personal-info-fields">
                         <span class="info-field-title name-title">Nombre</span>
                         <span class="info-field-text name-text">{nombre}</span>

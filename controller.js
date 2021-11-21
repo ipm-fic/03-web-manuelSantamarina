@@ -29,6 +29,8 @@ async function doLogin(e) {
 }
 
 async function doLoadData() {
+
+    
     let alertBox = document.querySelectorAll(".alertBox")[0];
     let name = document.querySelector(".name-text");
     let surname = document.querySelector(".surname-text");
@@ -40,6 +42,7 @@ async function doLoadData() {
     
     let userId = localStorage.getItem("sessionId");
     
+
     if(userId == null)
         return;
     
@@ -50,7 +53,8 @@ async function doLoadData() {
         alertBox.innerHTML="¡Error de conexión!";
     }
     alertBox.innerHTML="";
-
+    
+    
     if(u["users"] != "" && u["users"]) { //Ok!
         name.innerHTML = u["users"][0]["name"];
         surname.innerHTML = u["users"][0]["surname"];
@@ -60,6 +64,18 @@ async function doLoadData() {
         if(!u["users"][0]["tel"])
             vac.innerHTML = "No";
         else vac.innerHTML = "Sí";
+
+        var qrcodeText = "{"+u["users"][0]["name"]+"},{"+u["users"][0]["surname"]+"},{"+u["users"][0]["uuid"]+"}";
+        console.log(qrcodeText);
+
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: qrcodeText,
+            width:128,
+            height: 128,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
     }
 
     if(f["access_log"] != "" && f["access_log"]) { // Ok!
