@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
                 <img src="assets/splash.svg" alt="Image of COVIDWeb logo">
                 <link rel="stylesheet" href="index.css">
+                <div class="card popup">
                 <h1>Iniciar sesión</h1>
                 <form onsubmit="doLogin(event)">
                     <strong>Nombre de usuario</strong>
@@ -11,12 +12,10 @@
                     <strong>Contraseña</strong>
                     <input class="field-column" type="password" name="password" id="input-password" required>
                     <button class="padded"><strong>Iniciar sesión</strong></button>
-                    
                 </form>
                 <div class="alertBox"></div>
                 <p>¿No tienes cuenta en COVIDWeb? <a href="./register-page/register-page.html"><strong>Regístrate</strong></a></p>
-                
-            </div>
+                </div>
         </div>
         <script type="text/javascript">
             let userId = localStorage.getItem('sessionId');

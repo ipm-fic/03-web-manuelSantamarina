@@ -9,27 +9,67 @@ html{
     padding:10px;
     box-shadow: 1px 10px 27px -15px rgba(0,0,0,0.5);
 }
+
+
 #title{
     display:inline-block;
     font-weight: 700;
-    font-size:1.5em;
+    font-size: 1vw;
+}
+.field-column{
+    display:block;
+
+}
+h1{
+    font-size: 8vw;
+}
+form{
+    font-size: 6vw;
+}
+input[type=text]{
+    width: 85%;
 }
 .card{
     background-color: #ffffffaa;
     box-shadow: 1px 10px 27px -4px rgba(0,0,0,0.2);
-    margin:10%;
-    padding: 30px;
+    
     border-radius: 10px;
-    height: 100%;
+    padding:30px;
+}
+.popup{
+    margin:5%;
+    padding: 30px;
+}  
+/*Desktop*/
+@media (min-width: 1000px) {
+    #title{
+        display:inline-block;
+        font-weight: 700;
+        font-size:1.5em;
+    }
+    .popup{
+        margin:10%;
+        padding: 30px;
+        height: 100%;
+    }   
+    .field-column{
+        margin:10px;
+        display:block;
+        width:80%;
+        height: 30px;
+        max-width: 60%;
+    }
+    .card{
+        background-color: #ffffffaa;
+        box-shadow: 1px 10px 27px -4px rgba(0,0,0,0.2);
+        
+        border-radius: 10px;
+        padding:30px;
+    }
 }
 
-.field-column{
-    margin:10px;
-    display:block;
-    width:80%;
-    height: 30px;
-    max-width: 60%;
-}
+
+
 
 button{
     background-color: #3f51b5;
