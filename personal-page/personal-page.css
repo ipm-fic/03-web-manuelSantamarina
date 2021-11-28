@@ -62,13 +62,12 @@ td{
          align-items: flex-start;
     }   
     #info-panel{
-        
         max-width: 300px;
-        margin-top:20px;
+        margin:10px;
     }   
-    #access-list-container{
-        margin-top:20px;
+    #access-list{
         padding:20px;
+        margin:10px;
     }
  
 }
