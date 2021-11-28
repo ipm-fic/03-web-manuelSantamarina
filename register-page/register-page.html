@@ -16,7 +16,7 @@
 			<div id="title">COVIDWeb</div>
 		</div>
 		<div id="background">
-				<img src="../assets/logo.png" alt="Image of COVIDWeb logo">
+				<img class="banner" src="../assets/logo.png" alt="Image of COVIDWeb logo">
 				<h1>Registro de usuario</h1>
 				<form class="register-form" onSubmit="doSignUp(event)">
 				<div class="inline-fields" id="name-fields">
@@ -60,20 +60,36 @@
 					</div>
 					
 				</div>
-				<div class="inline-fields" id="last-fields">
+				<div id="last-fields">
+					
+						<label for="telephone-number">Teléfono</label>
+						<input class="field-column-register" type="tel" name="telephone-number" id="input-phone" placeholder="981XXXXXX" pattern="[0-9]{9}">
+						<div class="container-radio">
+						<div class="container-radio2">
+						<label id="label-vaccinated" for="vaccinated">¿Estás&nbspvacunado?</label>
+									<input type="radio" name="vaccinated" id="input-vaccinated" value="true">
+									<label for="yes">Sí</label>
+									<input type="radio" name="vaccinated" id="input-vaccinated" value="false" checked>
+									<label for="no">No</label>
+						</div>
+					</div>
+					</div>
+				</div>
+					
+				<!-- <div class="inline-fields" id="last-fields">
 					<div class="field-column-register">
 						<label for="telephone-number">Teléfono</label>
-					<input class="field-column-register" type="tel" name="telephone-number" id="input-phone" placeholder="981XXXXXX" pattern="[0-9]{9}">
+					<input type="tel" name="telephone-number" id="input-phone" placeholder="981XXXXXX" pattern="[0-9]{9}">
 					</div>
 					
 					<div class="field-column-register" id="radio-input">
-						<label for="vaccinated">¿Estás vacunado?</label>
+						<label id="label-vaccinated" for="vaccinated">¿Estás&nbspvacunado?</label>
 						<div class="radio-buttons">
 							<input type="radio" name="vaccinated" id="input-vaccinated" value="true"><label for="yes">Sí</label>
 							<input type="radio" name="vaccinated" id="input-vaccinated" value="false" checked><label for="no">No</label>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<button class="confirm-button" type="submit">Registrarse</button>
 				
 					<!-- 

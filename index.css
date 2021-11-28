@@ -79,6 +79,19 @@ button{
 
 /*Desktop*/
 @media (min-width: 1000px) {
+    .login-form>input{
+        height:30px;
+        width: 60%;
+        font-size:15px;
+    }
+    .login-form>button{
+        background-color: #3f51b5;
+        border: none;
+        border-radius: 5px;
+        height: 40px;
+        color:white;
+        box-shadow: 5px 5px 10px -4px rgb(0,0,0,0.3);
+    }
     #title{
         display:inline-block;
         font-weight: 700;

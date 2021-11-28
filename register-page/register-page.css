@@ -1,8 +1,8 @@
 
-radio-buttons{
-    display: inline-block;
-}
 
+.banner{
+    margin:30px;
+}
 field-inline{
     display:inline;
 }
@@ -27,13 +27,15 @@ inline-fields{
 .register-form>*>label{
     font-size:20px;
     font-weight: 400;
+    
 }
 .register-form>*>*>label{
     font-size:20px;
     font-weight: 400;
 }
-
-
+#input-vaccinated{
+    font-size: 30px;
+}
 .register-form>*>input{
     width:100%;
     height:40px;
@@ -63,9 +65,7 @@ inline-fields{
     flex-direction: column;
     width: 94%;
 }
-.register-form>*>*>input{
-    height: 40px;
-}
+
 #password-fields>*{
     grid-row:4/6;
     grid-column:1/1;
@@ -89,10 +89,7 @@ inline-fields{
         display:block;
         font-size: 15px;
         margin:10px;
-        height:30px;
-    }
-    .register-form>input[name="name"]{
-        background-color:red;
+        height:40px;
     }
     
     .register-form{
@@ -124,7 +121,11 @@ inline-fields{
     }
     #last-fields{
         grid-row:5/6;
-        display:flex;
+       
+    }
+    .container-radio{
+        grid-row 5 / 6;
+        grid-column: 1/2;
     }
     .confirm-button{
         grid-column: 1/2;
