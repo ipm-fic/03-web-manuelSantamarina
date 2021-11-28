@@ -28,8 +28,23 @@ td{
     grid-row: 2/2;
     margin-top:20px;
 }
-/**/
+#info-panel{
+    padding:0px 10px;
+    position:sticky;
+    display:grid;
+    }
+.info-panel:nth-child(odd){
+    grid-column:1/2;
+    color:red;
+}
+.info-panel:nth-child(2){
+    grid-column:1/2;
+}
+/*Desktop*/
 @media (min-width: 1000px) {
+    .inline-fields{
+        font-size:20px;
+    }
     #personal-page-container{
         grid-template-columns: auto minmax(0, 1fr);
     }   
@@ -45,4 +60,9 @@ td{
         grid-row: 1/1;
         margin-top:20px;
     }
-  }
+
+  #info-panel{
+    padding:1000px;
+    position:sticky;
+    }
+}
