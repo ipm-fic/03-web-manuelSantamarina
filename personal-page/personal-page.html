@@ -9,70 +9,64 @@
         <script type="text/javascript" src="../qrcode.min.js"></script>
         <title>Página personal</title>
         <div id="title-bar">
-			<div class="logout-button-container"><button class="logout-button" onclick="doLogOut(event)">Cerrar sesión</button></div>
-			<div id="title">COVIDWeb</div>
+            <button class="logout-button" onclick="doLogOut(event)">
+            <img src="../assets/out49x37_black.png" alt="" srcset=""></button>
+            <span id="title">COVIDWeb</span>
+            
 		</div>
     </head>
     <body onload="doLoadData()">
         
         <div id="personal-page-container">
-            <div id="info-panel-container">
-                <div id="info-panel">
-                    <h2>Mis datos</h2>
-                    <div id="qrcode"></div>
-                    <div class="personal-info-fields">
-                        <div class="info-field">
-                            <span class="info-field-title name-title">Nombre</span>
-                            <span class="info-field-text name-text">{nombre}</span>    
-                        </div>
-                        <div class="info-field">
-                            <span class="info-field-title surname-title">Apellido</span>
-                            <span class="info-field-text surname-text">{apellido}</span>    
-                        </div>
-                        <div class="info-field">
-                            <span class="info-field-title email-title">Correo electrónico</span>
-                            <span class="info-field-text email-text">{correo electrónico}</span>    
-                        </div>
-                        <div class="info-field">
-                            <span class="info-field-title username-title">Nombre de usuario</span>
-                            <span class="info-field-text username-text">{nombre de usuario}</span>    
-                        </div>
-                        <div class="info-field">
-                            <span class="info-field-title tel-title">Teléfono</span>
-                            <span class="info-field-text tel-text">{000-000-000}</span>    
-                        </div>
-                        <div class="info-field">
-                            <span class="info-field-title vac-field">¿Vacunado?</span>
-                            <span class="info-field-text vac-text">{Sí/no}</span>
-                        </div>
-                        
-                        
-                        
-                        
-                        
+            
+            <div id="info-panel" class="card">
+                <h2>Mis datos</h2>
+                <div id="qrcode"></div>
+                <div class="personal-info-fields">
+                    <div class="info-field">
+                        <span class="info-field-title name-title">Nombre</span>
+                        <span class="info-field-text name-text">{nombre}</span>    
                     </div>
+                    <div class="info-field">
+                        <span class="info-field-title surname-title">Apellido</span>
+                        <span class="info-field-text surname-text">{apellido}</span>    
+                    </div>
+                    <div class="info-field">
+                        <span class="info-field-title email-title">Correo electrónico</span>
+                        <span class="info-field-text email-text">{correo electrónico}</span>    
+                    </div>
+                    <div class="info-field">
+                        <span class="info-field-title username-title">Nombre de usuario</span>
+                        <span class="info-field-text username-text">{nombre de usuario}</span>    
+                    </div>
+                    <div class="info-field">
+                        <span class="info-field-title tel-title">Teléfono</span>
+                        <span class="info-field-text tel-text">{000-000-000}</span>    
+                    </div>
+                    <div class="info-field">
+                    <span class="info-field-title vac-field">¿Vacunado?</span>
+                    <span class="info-field-text vac-text">{Sí/no}</span>
+                </div>
                 </div>
             </div>
-            <div id="access-list-container" class="card">
+            <div id="access-list">
                 <h2>Mis check-ins recientes</h2>
-                <div id="access-list">
-                    
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tipo</th>
-                                <th>Instalación</th>
-                                <th>Fecha y hora</th>
-                                <th>Temp(ºC)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="access_data">
-                        </tbody>
-                    </table>
-                    
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Instalación</th>
+                            <th>Fecha y hora</th>
+                            <th>Temp(ºC)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="access_data">
+                        
+                    </tbody>
+                </table>
+                <div class="alertBox"></div>
             </div>
-            <div class="alertBox"></div>
+            
         </div>
         <script type="text/javascript">
             let userId = localStorage.getItem('sessionId');

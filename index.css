@@ -4,17 +4,18 @@ html{
 #title-bar{
     color: white;
     border-radius: 10px;
-    width: 97%;
+    width: 100%;
     background-color:#3f51b5;
-    padding:10px;
     box-shadow: 1px 10px 27px -15px rgba(0,0,0,0.5);
+    display:flex;
 }
 
 
 #title{
-    display:inline-block;
+    display:flex;
     font-weight: 700;
     font-size: 25px;
+    padding:10px;
 }
 .field-column{
     display:block;
@@ -44,6 +45,7 @@ p{
     box-shadow: 1px 10px 27px -4px rgba(0,0,0,0.2);
     border-radius: 10px;
     padding:30px;
+    width: 99vw;
 }
 button{
     height:50px;
@@ -51,8 +53,15 @@ button{
     border-radius: 2%;
     font-size:20px;
     padding:10px;
-    margin: 0 0 10px 10px;
-    background-color: #3f51b5;
+    background-color: #374fd8;
+    border:none;
+
+    font-weight: 400;
+    
+}
+button:active{
+    background-color: #212d70;
+    transition: 0.2s;
 }
 .cardbutton{
     font-size:30px;
@@ -70,6 +79,14 @@ button{
     height: 70px;
     color:white;
     box-shadow: 5px 5px 10px -4px rgb(0,0,0,0.3);
+}
+.login-form>button:active{
+    background-color: #212d70;
+    transition:0.2s;
+}
+.login-form>button:hover{
+    background-color: #374fd8;
+    transition:0.2s;
 }
 .login-form>input{
     height:60px;

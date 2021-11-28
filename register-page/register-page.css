@@ -78,6 +78,16 @@ inline-fields{
     display:flex;
     flex-direction: column;
 }
+.container-radio2{
+    grid-row: 5 / 6;
+    grid-column: 1/2;
+    padding:20px;
+    
+}
+.container-radio2>input{
+    transform:scale(2);
+    margin:10px;
+}
 @media (min-width: 1000px) {
     .max-fields{
         width:100%;
@@ -123,10 +133,7 @@ inline-fields{
         grid-row:5/6;
        
     }
-    .container-radio{
-        grid-row 5 / 6;
-        grid-column: 1/2;
-    }
+    
     .confirm-button{
         grid-column: 1/2;
         margin:30px;
