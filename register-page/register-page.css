@@ -28,6 +28,10 @@ inline-fields{
     font-size:20px;
     font-weight: 400;
 }
+.register-form>*>*>label{
+    font-size:20px;
+    font-weight: 400;
+}
 
 
 .register-form>*>input{
@@ -40,30 +44,39 @@ inline-fields{
     margin:10px;
     height:30px;
 }
-#name-fields{
+#name-fields>*{
     grid-row:1/6;
     grid-column:1/1;
     display:flex;
+    flex-direction: column;
 }
 
-#email-fields{
+#email-fields>*{
     grid-row: 2/6;
     grid-column:1/1;
     display:flex;
+    flex-direction: column;
 }
-#username-fields{
+#username-field>*{
     grid-row: 3/6;
     grid-column:1/1;
+    flex-direction: column;
+    width: 94%;
 }
-#password-fields{
+.register-form>*>*>input{
+    height: 40px;
+}
+#password-fields>*{
     grid-row:4/6;
     grid-column:1/1;
     display:flex;
+    flex-direction: column;
 }
-#last-fields{
+#last-fields>*{
     grid-row:5/6;
     grid-column:1/1;
     display:flex;
+    flex-direction: column;
 }
 @media (min-width: 1000px) {
     .max-fields{
@@ -90,15 +103,19 @@ inline-fields{
         grid-column:1 / span 2;
         display:flex;
     }
-
+    .register-form>*>*>input{
+        width:300px;
+        height: 40px;
+    }
     #email-fields{
         grid-row: 2/6;
         grid-column:1 / span 2;
         display:flex;
     }
-    #username-fields{
+    #username-field{
         grid-row: 3/6;
         grid-column: 1 / span 2;
+        width: 670px;
     }
     #password-fields{
         grid-row:4/6;
@@ -109,9 +126,17 @@ inline-fields{
         grid-row:5/6;
         display:flex;
     }
-    .register-form>button{
-        width:150px;
-        grid-row:6/6;
-        grid-column:1/2;
+    .confirm-button{
+        grid-column: 1/2;
+        margin:30px;
+        font-size:20px;
+        width:200px;
+        border-radius: 10px;
+        position: absolute;
     }
+}
+
+.error{
+    color:red;
+    font-size: 15px;
 }
