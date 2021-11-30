@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-                <link rel="stylesheet" href="index.css">
-                
-                
-        <script type="text/javascript">
-            let userId = localStorage.getItem('sessionId');
-            if(userId != null) {
-                window.location.replace("./personal-page/personal-page.html");
-            }
-        </script>
-        <script src="model.js" type="text/javascript"></script>
-        <script src="controller.js" type="text/javascript"></script>
-        <body>
-            <div class="flex-column">
-                <div class="flex-container">
-                    <img class="banner" src="../assets/logo.png" alt="Image of COVIDWeb logo">
-                    <div class="card popup">
-                    <form class="login-form" onsubmit="doLogin(event)">
-                        <label for="username"><strong>Nombre de usuario</strong></label>
-                        <input class="field-column login" type="text" name="username" id="input-username" required>
-                        <label for="password"><strong>Contraseña</strong></label>
-                        <input class="field-column login" type="password" name="password" id="input-password" required>
-                        <button class="padded cardbutton"><strong>Iniciar sesión</strong></button>
-                    </form>
-                    <div class="alertBox"></div>
-                    <p>¿No tienes cuenta en COVIDWeb? <a href="./register-page/register-page.html"><strong>Regístrate</strong></a></p>
-                    </div>
-                    </div>
-            </div>    
+
+<head>
+    <meta charset="UTF-8">
+    <title>CovidWeb</title>
+    <link rel="stylesheet" href="index.css">
+
+
+    <script>
+        let userId = localStorage.getItem('sessionId');
+        if (userId != null) {
+            window.location.replace("./personal-page/personal-page.html");
+        }
+    </script>
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
+</head>
+
+<body>
+    <div class="flex-column">
+        <div class="flex-container">
+            <img class="banner" src="./assets/logo.png" alt="Image of COVIDWeb logo">
+            <div class="card popup">
+                <form class="login-form" onsubmit="doLogin(event)">
+                    <label for="input-username"><strong>Nombre de usuario</strong></label>
+                    <input class="field-column login" type="text" name="username" id="input-username" required>
+                    <label for="input-password"><strong>Contraseña</strong></label>
+                    <input class="field-column login" type="password" name="password" id="input-password" required>
+                    <button class="padded cardbutton"><strong>Iniciar sesión</strong></button>
+                </form>
+                <div class="alertBox"></div>
+                <p>¿No tienes cuenta en COVIDWeb? <a href="./register-page/register-page.html"><strong>Regístrate</strong></a></p>
             </div>
-        </body>
+        </div>
+    </div>
+</body>
 
 </html>
