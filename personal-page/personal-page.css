@@ -13,8 +13,12 @@ td{
     align-self: center;
 }
 #personal-page-container{
+    display:-ms-grid;
     display:grid;
-   
+}
+
+ul {
+    list-style-type: none;
 }
 
 #info-panel-container{
@@ -22,6 +26,7 @@ td{
     grid-column: 1/1;
     max-width: 320px;
     margin-top:20px;
+    position: -webkit-sticky;
     position: sticky;
     
 }
@@ -32,6 +37,7 @@ td{
 }
 #info-panel{
     padding:0px 10px;
+    position: -webkit-sticky;
     position:sticky;
     display:flex;
     flex-direction: column;

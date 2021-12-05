@@ -10,14 +10,19 @@
     <title>COVIDWeb</title>
 </head>
 
-<body>
-    <div id="title-bar">
-        <button class="home" onclick="goHome()">
-				<img src="../assets/home_black_24dp.svg" alt="Ir a inicio botón">
-			</button>
-        <div id="title">COVIDWeb</div>
+<body>   
+    <div id="title-bar" aria-label="Main" role="navigation">
+        <ul>
+            <li>
+                <a class="home" onclick="goHome()">
+                    <img src="../assets/home_black_24dp.svg" alt="Ir a inicio botón">
+                </a>
+            </li>
+        </ul>
+    
+        <div id="title" role="banner">COVIDWeb</div>
     </div>
-    <div id="background">
+    <div id="background" role="main">
         <div class="card">
             <h1>Registro de usuario</h1>
             <form class="register-form" onSubmit="doSignUp(event)">
@@ -84,7 +89,7 @@
             </form>
         </div>
     </div>
-    <div class="alertBox"></div>
+    <div class="alertBox" role="alert"></div>
     <script>
         let userId = localStorage.getItem('sessionId');
         if (userId != null) {

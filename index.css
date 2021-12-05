@@ -7,9 +7,16 @@ html{
     width: 100%;
     background-color:#3f51b5;
     box-shadow: 1px 10px 27px -15px rgba(0,0,0,0.5);
-    display:flex;
+    display: flex;
 }
 
+a {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
 
 #title{
     display:flex;

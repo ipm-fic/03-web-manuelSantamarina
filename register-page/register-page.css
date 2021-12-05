@@ -66,6 +66,10 @@ inline-fields{
     width: 94%;
 }
 
+ul {
+    list-style-type: none;
+}
+
 #password-fields>*{
     grid-row:4/6;
     grid-column:1/1;

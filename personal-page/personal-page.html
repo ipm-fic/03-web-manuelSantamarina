@@ -12,12 +12,18 @@
 </head>
 
 <body onload="doLoadData()">
-    <div id="title-bar">
-        <button class="logout-button" onclick="doLogOut(event)">
-            <img src="../assets/out49x37_black.png" alt="Cerrar sesión imagen"></button>
-        <span id="title">COVIDWeb</span>
+    
+    <div role="navigation" aria-label="Main" id="title-bar">
+        <ul>
+            <li>
+                <a class="logout-button" onclick="doLogOut(event)">
+                    <img src="../assets/out49x37_black.png" alt="Cerrar sesión imagen">
+                </a>
+            </li>
+        </ul>
+        <div id="title" role="banner">COVIDWeb</div>
     </div>
-    <div id="personal-page-container">
+    <div id="personal-page-container" role="main">
 
         <div id="info-panel" class="card">
             <h2>Mis datos</h2>
@@ -64,7 +70,7 @@
 
                 </tbody>
             </table>
-            <div class="alertBox"></div>
+            <div class="alertBox" role="alert"></div>
         </div>
 
     </div>

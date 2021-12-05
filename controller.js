@@ -80,7 +80,7 @@ async function doLoadData() {
         f["access_log"]= f["access_log"].sort((function (a, b) { return new Date(b.timestamp) - new Date(a.timestamp) }));
 
         if(f["access_log"].length <= 0) {
-            alertBox.innerHTML += "No hay datos del usuari@";
+            alertBox.innerHTML += "No hay datos del usuario";
         }
 
         for(let i = 0; i < f["access_log"].length; i++) {
