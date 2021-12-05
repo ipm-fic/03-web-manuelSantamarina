@@ -10,7 +10,7 @@ html{
     display: flex;
 }
 
-a {
+a, button[type=submit], input[type=radio] {
     cursor: pointer;
 }
 
