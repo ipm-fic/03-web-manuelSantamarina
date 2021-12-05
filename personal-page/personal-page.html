@@ -11,7 +11,7 @@
     <title>Página personal</title>
 </head>
 
-<body onload="doLoadData()">
+<body onload="hideAlerts();doLoadData()">
     
     <div role="navigation" aria-label="Main" id="title-bar">
         <ul>
@@ -70,7 +70,7 @@
 
                 </tbody>
             </table>
-            <div class="alertBox" role="alert"></div>
+            <div class="alertBox" role="alert" aria-hidden="true"></div>
         </div>
 
     </div>

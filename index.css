@@ -12,6 +12,11 @@ html{
 
 a, button[type=submit], input[type=radio] {
     cursor: pointer;
+    opacity: 90%;
+}
+
+a:hover, button[type=submit]:hover {
+    opacity: 100%;
 }
 
 ul {
@@ -193,4 +198,16 @@ button:active{
 #background{
 /*    background-image:-webkit-linear-gradient(white,#3f51b5);*/
     height:100%;
+}
+
+
+.alertBox {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid red;
+    border-radius: 15px;
+    color: block;
+    text-align: center;
+    padding: 20px;
+    width: 60%;
 }

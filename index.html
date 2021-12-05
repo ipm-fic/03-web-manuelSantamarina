@@ -6,19 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CovidWeb</title>
     <link rel="stylesheet" href="index.css">
-
-
-    <script>
-        let userId = localStorage.getItem('sessionId');
-        if (userId != null) {
-            window.location.replace("./personal-page/personal-page.html");
-        }
-    </script>
-    <script src="model.js"></script>
-    <script src="controller.js"></script>
 </head>
 
-<body>
+<body onload="hideAlerts()">
     <div class="flex-column" role="main">
         <div class="flex-container">
             <img class="banner" src="./assets/logo.png" alt="Logo de COVIDWeb">
@@ -30,11 +20,19 @@
                     <input class="field-column login" type="password" name="password" id="input-password" required>
                     <button type="submit" class="padded cardbutton"><strong>Iniciar sesión</strong></button>
                 </form>
-                <div class="alertBox" role="alert"></div>
+                <div class="alertBox" role="alert" aria-hidden="true"></div>
                 <p>¿No tienes cuenta en COVIDWeb? <a href="./register-page/register-page.html"><strong>Regístrate</strong></a></p>
             </div>
         </div>
     </div>
+    <script>
+        let userId = localStorage.getItem('sessionId');
+        if (userId != null) {
+            window.location.replace("./personal-page/personal-page.html");
+        }
+    </script>
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
 </body>
 
 </html>

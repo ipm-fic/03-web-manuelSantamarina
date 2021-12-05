@@ -1,5 +1,12 @@
 const loginRedirectPage = "./personal-page/personal-page.html";
 const homePage = "../index.html";
+let alertBox = document.querySelectorAll(".alertBox")[0];
+
+function hideAlerts() {
+    let alertBox = document.querySelectorAll(".alertBox")[0];
+    alertBox.style.display = "none";
+    alertBox.setAttribute("aria-hidden", "true");
+}
 
 async function doLogin(e) {
     e.preventDefault();
@@ -11,20 +18,26 @@ async function doLogin(e) {
     let u = await login(username, password);
 
     if(u["error"] || !u["users"]) {      //Error DB / Connection
+        alertBox.style.display = "block";
+        alertBox.setAttribute("aria-hidden", "false");
         alertBox.innerHTML="¡Error de conexión!";
     }
 
     if(u["users"] == "" && u["users"]) { //Incorrect login
+        alertBox.style.display = "block";
+        alertBox.setAttribute("aria-hidden", "false");
         alertBox.innerHTML="Usuario y/o contraseña incorrectos.";
     }
 
     if(u["users"] != "" && u["users"]) { //Ok!
-        alertBox.innerHTML="Inicio de sesión correcto, redireccionando...";
+        alertBox.style.display = "none";
+        alertBox.setAttribute("aria-hidden", "true");
+        //alertBox.innerHTML="Inicio de sesión correcto, redireccionando...";
         let userId=u["users"][0]["uuid"];
         localStorage.setItem("sessionId", userId);
         setTimeout(function() {
             window.location.replace(loginRedirectPage);
-        }, 2500);
+        }, 0);
     }
 }
 
@@ -50,11 +63,15 @@ async function doLoadData() {
     let f = await loadUserAccess(userId, 0, 0);
     alertBox.innerHTML="";
     if(u["error"] || !u["users"] || f["error"] || !f["access_log"]) {  //Error DB / Connection
+        alertBox.style.display = "block";
+        alertBox.setAttribute("aria-hidden", "false");
         alertBox.innerHTML="¡Error de conexión!";
     }
     
     
     if(u["users"] != "" && u["users"]) { //Ok!
+        alertBox.style.display = "none";
+        alertBox.setAttribute("aria-hidden", "true");
         name.innerHTML = u["users"][0]["name"];
         surname.innerHTML = u["users"][0]["surname"];
         email.innerHTML = u["users"][0]["email"];
@@ -80,8 +97,13 @@ async function doLoadData() {
         f["access_log"]= f["access_log"].sort((function (a, b) { return new Date(b.timestamp) - new Date(a.timestamp) }));
 
         if(f["access_log"].length <= 0) {
+            alertBox.style.display = "block";
+            alertBox.setAttribute("aria-hidden", "true");
             alertBox.innerHTML += "No hay datos del usuario";
-        }
+        }else {
+            alertBox.style.display = "none";
+            alertBox.setAttribute("aria-hidden", "false");
+        } 
 
         for(let i = 0; i < f["access_log"].length; i++) {
             let nrow = document.createElement("tr");
@@ -137,18 +159,24 @@ async function doSignUp(e) {
     let u = await addUser(username, password, name, surname, phone, email, is_vaccinated);
 
     if(u["error"] || !u["insert_users_one"]) {                 //Error DB / Connection
+        alertBox.style.display = "block";
+        alertBox.setAttribute("aria-hidden", "false");
         alertBox.innerHTML="¡Error de conexión!";
     }
 
     if(u["insert_users_one"] == "" && u["insert_users_one"]) { //Incorrect sign up
+        alertBox.style.display = "block";
+        alertBox.setAttribute("aria-hidden", "false");
         alertBox.innerHTML="Usuario y/o contraseña incorrectos.";
     }
 
     if(u["insert_users_one"] != "" && u["insert_users_one"]) { //Ok!
-        alertBox.innerHTML="Registro correcto, redireccionando...";
+        alertBox.style.display = "none";
+        alertBox.setAttribute("aria-hidden", "true");
+        //alertBox.innerHTML="Registro correcto, redireccionando...";
         setTimeout(function() {
             window.location.replace(homePage);
-        }, 2500);
+        }, 0);
     }
     
 }
@@ -162,6 +190,8 @@ async function doCheckUsernameExists(username) { //goldenbird345
     let exists = false;
 
     if(u["error"] || !u["users"]) {      //Error DB / Connection
+        alertBox.style.display = "block";
+        alertBox.setAttribute("aria-hidden", "false");
         alertBox.innerHTML="¡Error de conexión!";
     }
 

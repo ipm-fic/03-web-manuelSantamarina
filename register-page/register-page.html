@@ -10,7 +10,7 @@
     <title>COVIDWeb</title>
 </head>
 
-<body>   
+<body onload="hideAlerts()">   
     <div id="title-bar" aria-label="Main" role="navigation">
         <ul>
             <li>
@@ -89,7 +89,7 @@
             </form>
         </div>
     </div>
-    <div class="alertBox" role="alert"></div>
+    <div class="alertBox" role="alert" aria-hidden="true"></div>
     <script>
         let userId = localStorage.getItem('sessionId');
         if (userId != null) {
