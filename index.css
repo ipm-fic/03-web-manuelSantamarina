@@ -23,6 +23,7 @@ ul {
     font-weight: 700;
     font-size: 25px;
     padding:10px;
+    padding-top: 15px;
 }
 .field-column{
     display:block;
