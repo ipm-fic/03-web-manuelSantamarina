@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CovidWeb</title>
     <link rel="stylesheet" href="index.css">
 
@@ -20,14 +21,14 @@
 <body>
     <div class="flex-column">
         <div class="flex-container">
-            <img class="banner" src="./assets/logo.png" alt="Image of COVIDWeb logo">
+            <img class="banner" src="./assets/logo.png" alt="Logo de COVIDWeb">
             <div class="card popup">
                 <form class="login-form" onsubmit="doLogin(event)">
                     <label for="input-username"><strong>Nombre de usuario</strong></label>
                     <input class="field-column login" type="text" name="username" id="input-username" required>
                     <label for="input-password"><strong>Contraseña</strong></label>
                     <input class="field-column login" type="password" name="password" id="input-password" required>
-                    <button class="padded cardbutton"><strong>Iniciar sesión</strong></button>
+                    <button type="submit" class="padded cardbutton"><strong>Iniciar sesión</strong></button>
                 </form>
                 <div class="alertBox"></div>
                 <p>¿No tienes cuenta en COVIDWeb? <a href="./register-page/register-page.html"><strong>Regístrate</strong></a></p>
