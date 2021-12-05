@@ -85,10 +85,15 @@ async function doLoadData() {
 
         for(let i = 0; i < f["access_log"].length; i++) {
             let nrow = document.createElement("tr");
+            nrow.role="row";
             let nc_type = document.createElement("td");
+            nc_type.role="cell";
             let nc_name = document.createElement("td");
+            nc_name.role="cell";
             let nc_timestamp = document.createElement("td");
+            nc_timestamp.role="cell";
             let nc_temperature = document.createElement("td");
+            nc_temperature.role="cell";
 
             nc_type.innerHTML = f["access_log"][i]["type"];
             nc_name.innerHTML = f["access_log"][i]["facility"]["name"];

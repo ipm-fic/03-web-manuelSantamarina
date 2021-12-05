@@ -29,27 +29,27 @@
             <h2>Mis datos</h2>
             <div id="qrcode"></div>
             <div class="personal-info-fields">
-                <div class="info-field">
+                <div class="info-field" aria-label="Nombre">
                     <span class="info-field-title name-title">Nombre</span>
                     <span class="info-field-text name-text">{nombre}</span>
                 </div>
-                <div class="info-field">
+                <div class="info-field" aria-label="Apellido">
                     <span class="info-field-title surname-title">Apellido</span>
                     <span class="info-field-text surname-text">{apellido}</span>
                 </div>
-                <div class="info-field">
+                <div class="info-field" aria-label="Correo electrónico">
                     <span class="info-field-title email-title">Correo electrónico</span>
                     <span class="info-field-text email-text">{correo electrónico}</span>
                 </div>
-                <div class="info-field">
+                <div class="info-field" aria-label="Nombre de usuario">
                     <span class="info-field-title username-title">Nombre de usuario</span>
                     <span class="info-field-text username-text">{nombre de usuario}</span>
                 </div>
-                <div class="info-field">
+                <div class="info-field" aria-label="Teléfono">
                     <span class="info-field-title tel-title">Teléfono</span>
                     <span class="info-field-text tel-text">{000-000-000}</span>
                 </div>
-                <div class="info-field">
+                <div class="info-field" aria-label="¿Vacunado?">
                     <span class="info-field-title vac-field">¿Vacunado?</span>
                     <span class="info-field-text vac-text">{Sí/no}</span>
                 </div>
@@ -59,11 +59,11 @@
             <h2>Mis check-ins recientes</h2>
             <table>
                 <thead>
-                    <tr>
-                        <th>Tipo</th>
-                        <th>Instalación</th>
-                        <th>Fecha y hora</th>
-                        <th>Temp(ºC)</th>
+                    <tr role="row">
+                        <th role="columnheader" scope="col">Tipo</th>
+                        <th role="columnheader" scope="col">Instalación</th>
+                        <th role="columnheader" scope="col" aria-sort="ascending">Fecha y hora</th>
+                        <th role="columnheader" scope="col">Temp(ºC)</th>
                     </tr>
                 </thead>
                 <tbody id="access_data">
