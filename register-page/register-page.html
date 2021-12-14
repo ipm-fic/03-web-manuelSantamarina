@@ -10,7 +10,7 @@
     <title>COVIDWeb</title>
 </head>
 
-<body onload="hideAlerts()">   
+<body onload="hideAlerts()">
     <div id="title-bar" aria-label="Main" role="navigation">
         <ul>
             <li>
@@ -19,7 +19,7 @@
                 </a>
             </li>
         </ul>
-    
+
         <div id="title" role="banner">COVIDWeb</div>
     </div>
     <div id="background">
@@ -29,7 +29,7 @@
                 <div class="inline-fields" id="name-fields">
                     <div id="name-input">
                         <label for="input-name">Nombre *</label>
-                        <input class="field-column-register" placeholder="Introduzca un nombre" type="text" minlength="4" onkeyup="clearError(this)" name="name" id="input-name" required>
+                        <input class="field-column-register" placeholder="Introduzca un nombre" type="text" minlength="4" onkeyup="clearError(this)" name="name" id="input-name" autofocus required>
                         <div class="name-error error"></div>
                     </div>
                     <div id="surname-input">
@@ -87,9 +87,10 @@
 
                 </div>
             </form>
+            <div class="alertBox" role="alert" aria-hidden="true"></div>
         </div>
     </div>
-    <div class="alertBox" role="alert" aria-hidden="true"></div>
+
     <script>
         let userId = localStorage.getItem('sessionId');
         if (userId != null) {
