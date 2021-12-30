@@ -15,7 +15,7 @@
         <ul>
             <li>
                 <a class="home" onclick="goHome()">
-                    <img src="../assets/home_black_24dp.svg" alt="Ir a inicio botón">
+                    <img id="home-img" src="../assets/home_black_24dp.svg" alt="Ir a inicio botón">
                 </a>
             </li>
         </ul>
@@ -23,9 +23,9 @@
         <div id="title" role="banner">COVIDWeb</div>
     </div>
     <div id="background">
-        <div class="card" role="main">
+        <div class="card register-card" role="main">
             <h1>Registro de usuario</h1>
-            <form class="register-form" onSubmit="doSignUp(event)">
+            <form class="register-form" autocomplete = "off" onSubmit="doSignUp(event)">
                 <div class="inline-fields" id="name-fields">
                     <div id="name-input">
                         <label for="input-name">Nombre *</label>
@@ -40,12 +40,12 @@
                 </div>
                 <div class="inline-fields" id="email-fields">
                     <div id="email-input">
-                        <label for="input-email">Correo electrónico *</label>
+                        <label for="input-email">Email *</label>
                         <input class="field-column-register" type="email" name="email" onkeyup="clearError(this);checkEmails()" minlength="1" id="input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
                         <div class="email-error error"> </div>
                     </div>
                     <div id="email-confirm-input">
-                        <label for="input-email-confirm">Confirmar correo electrónico</label>
+                        <label for="input-email-confirm">Confirmar email</label>
                         <input class="field-column-register" type="email" onkeyup="clearError(this);checkEmails()" minlength="1" name="email-confirm" id="input-email-confirm" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="user@email.com" required>
                         <div class="email-confirm-error error"></div>
                     </div>
@@ -60,12 +60,12 @@
                 <div class="inline-fields" id="password-fields">
                     <div id="password-input">
                         <label for="input-password">Contraseña*</label>
-                        <input class="field-column-register" type="password" name="password" onkeyup="clearError(this);checkPasswords()" minlength="8" id="input-password" placeholder="Introduzca una contraseña" required>
+                        <input class="field-column-register" type="password" name="password" onkeyup="clearError(this);checkPasswords()" minlength="8" id="input-password" autocomplete="new-password" placeholder="Introduzca una contraseña" required>
                         <div class="password-error error"></div>
                     </div>
                     <div id="password-confirm-input">
                         <label for="input-password-confirm">Confirmar contraseña*</label>
-                        <input class="field-column-register field-inline" type="password" onkeyup="clearError(this);checkPasswords()" minlength="8" name="password-confirm" placeholder="Confirme su contraseña" id="input-password-confirm" required>
+                        <input class="field-column-register field-inline" type="password" onkeyup="clearError(this);checkPasswords()" minlength="8" name="password-confirm"autocomplete="new-password" placeholder="Confirme su contraseña" id="input-password-confirm" required>
                         <div class="password-confirm-error error"></div>
                     </div>
 

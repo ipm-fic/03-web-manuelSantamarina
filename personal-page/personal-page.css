@@ -65,6 +65,7 @@ ul {
     }
     #personal-page-container{
          display:flex;
+         justify-content: center;
          align-items: flex-start;
     }   
     #info-panel{
