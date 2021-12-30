@@ -1,21 +1,25 @@
-html{
+html {
     font-family: 'DM Sans', 'sans-serif';
 }
-#title-bar{
+
+#title-bar {
     color: white;
     border-radius: 10px;
     width: 100%;
-    background-color:#3f51b5;
-    box-shadow: 1px 10px 27px -15px rgba(0,0,0,0.5);
+    background-color: #3f51b5;
+    box-shadow: 1px 10px 27px -15px rgba(0, 0, 0, 0.5);
     display: flex;
 }
 
-a, button[type=submit], input[type=radio] {
+a,
+button[type=submit],
+input[type=radio] {
     cursor: pointer;
     opacity: 90%;
 }
 
-a:hover, button[type=submit]:hover {
+a:hover,
+button[type=submit]:hover {
     opacity: 100%;
 }
 
@@ -23,28 +27,39 @@ ul {
     list-style-type: none;
 }
 
-#title{
-    display:flex;
+#title {
+    display: flex;
     font-weight: 700;
     font-size: 25px;
-    padding:10px;
+    padding: 10px;
     padding-top: 15px;
 }
+<<<<<<< HEAD
 .field-column{
     display:block;
+=======
+
+.field-column {
+    display: block;
+    font-size: 20px;
+>>>>>>> 7ac08d2617d42db45084ba4092b624470b7f84f2
 }
-h1{
+
+h1 {
     font-size: 40px;
 }
-.login-form{
+
+.login-form {
     font-size: 40px;
-    padding:20px;
-    display:flex;
+    padding: 20px;
+    display: flex;
     flex-direction: column;
 }
-.login{
+
+.login {
     width: 100%;
     height: auto;
+<<<<<<< HEAD
     
     
     margin:50px 0px;
@@ -52,66 +67,81 @@ h1{
 
 
 p{
+=======
+    padding: 10px;
+    margin: 50px 0px;
+}
+
+p {
+>>>>>>> 7ac08d2617d42db45084ba4092b624470b7f84f2
     font-size: 30px;
 }
-.flex-container{
-    display:flex;
+
+.flex-container {
+    display: flex;
     flex-direction: column;
 }
-.banner{
-    max-width:60%;
+
+.banner {
+    max-width: 60%;
     width: 700px;
     margin: 5%;
     align-self: center;
 }
-.card{
-    margin:2%;
-    background-color: #ffffffaa;
-    box-shadow: 1px 10px 27px -4px rgba(0,0,0,0.05);
-    border-radius: 10px;
-    padding:30px;
-}
-button{
-    height:50px;
-    color:white;
-    border-radius: 2%;
-    font-size:20px;
-    padding:10px;
-    background-color: #374fd8;
-    border:none;
 
-    font-weight: 400;
-    
+.card {
+    margin: 2%;
+    background-color: #ffffffaa;
+    box-shadow: 1px 10px 27px -4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 30px;
 }
-button:active{
+
+button {
+    height: 50px;
+    color: white;
+    border-radius: 2%;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #374fd8;
+    border: none;
+    font-weight: 400;
+}
+
+button:active {
     background-color: #212d70;
     transition: 0.2s;
 }
-.cardbutton{
-    font-size:30px;
+
+.cardbutton {
+    font-size: 30px;
     font-weight: 700;
 }
 
-.popup{
-    margin:5%;
+.popup {
+    margin: 5%;
     padding: 30px;
-}  
-.login-form>button{
+}
+
+.login-form>button {
     background-color: #3f51b5;
     border: none;
     border-radius: 5px;
     height: 70px;
-    color:white;
-    box-shadow: 5px 5px 10px -4px rgb(0,0,0,0.1);
+    color: white;
+    box-shadow: 5px 5px 10px -4px rgb(0, 0, 0, 0.1);
 }
-.login-form>button:active{
+
+.login-form>button:active {
     background-color: #212d70;
-    transition:0.2s;
+    transition: 0.2s;
 }
-.login-form>button:hover{
+
+.login-form>button:hover {
     background-color: #374fd8;
-    transition:0.2s;
+    transition: 0.2s;
 }
+<<<<<<< HEAD
 .login-form>input:not([type="checkbox"]){
     height:60px;
     width: 100%;
@@ -119,94 +149,116 @@ button:active{
     background-color: #eee;
     font-size: 24px;
 }
+=======
+
+.login-form>input {
+    height: 60px;
+    width: 100%;
+    font-size: 30px;
+}
+
+
+>>>>>>> 7ac08d2617d42db45084ba4092b624470b7f84f2
 /*Desktop*/
+
 @media (min-width: 1000px) {
-    .flex-column{
+    .flex-column {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
-    .flex-container{
+    .flex-container {
         max-width: 50%;
     }
+<<<<<<< HEAD
     .login-form>input{
         width: 60%;
+=======
+    .login-form>input {
+        height: 30px;
+        width: 60%;
+        font-size: 15px;
+>>>>>>> 7ac08d2617d42db45084ba4092b624470b7f84f2
     }
-    .login-form>button{
+    .login-form>button {
         background-color: #3f51b5;
         border: none;
         border-radius: 5px;
         height: 40px;
-        color:white;
-        box-shadow: 5px 5px 10px -4px rgb(0,0,0,0.3);
+        color: white;
+        box-shadow: 5px 5px 10px -4px rgb(0, 0, 0, 0.3);
     }
-    #title{
-        display:inline-block;
+    #title {
+        display: inline-block;
         font-weight: 700;
     }
-    .popup{
+    .popup {
         margin: 0% 30%;
         height: 100%;
     }
-    form{
+    form {
         margin: 0;
         padding: 0;
-    }   
-    .field-column{
-        margin:10px;
-        display:block;
-        width:60%;
+    }
+    .field-column {
+        margin: 10px;
+        display: block;
+        width: 60%;
         height: 30px;
         max-width: 60%;
     }
-    .card{
+    .card {
         background-color: #ffffffaa;
-        box-shadow: 1px 10px 27px -4px rgba(0,0,0,0.1);
+        box-shadow: 1px 10px 27px -4px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
-        padding:30px;
-        margin:10px;
+        padding: 30px;
+        margin: 10px;
     }
-    p, h1, h2 {
+    p,
+    h1,
+    h2 {
         width: 85%;
         font-size: 30px;
     }
-    input{
-        font-size:20px;
-    }
-    form{
-        font-size:20px;
-    }
-    p{
+    input {
         font-size: 20px;
     }
-    .cardbutton{
+    form {
+        font-size: 20px;
+    }
+    p {
+        font-size: 20px;
+    }
+    .cardbutton {
         width: 150px;
-        height:40px;
+        height: 40px;
         font-size: 15px;
     }
-    .login-form>label{
-        font-size:30px;
+    .login-form>label {
+        font-size: 30px;
     }
+<<<<<<< HEAD
     .field-column{
         display:block;
+=======
+    .field-column {
+        display: block;
+        font-size: 15px;
+>>>>>>> 7ac08d2617d42db45084ba4092b624470b7f84f2
     }
 }
 
-
-#background{
-/*    background-image:-webkit-linear-gradient(white,#3f51b5);*/
-    height:100%;
+#background {
+    /*    background-image:-webkit-linear-gradient(white,#3f51b5);*/
+    height: 100%;
 }
-
 
 .alertBox {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.25);
-    border: 1px solid red;
-    border-radius: 15px;
-    color: block;
+    color: red;
     text-align: center;
+    font-size: calc(12px + .5vw);
     padding: 20px;
     width: 60%;
 }

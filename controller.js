@@ -4,7 +4,7 @@ let alertBox = document.querySelectorAll(".alertBox")[0];
 
 function hideAlerts() {
     let alertBox = document.querySelectorAll(".alertBox")[0];
-    alertBox.style.display = "none";
+    alertBox.style.display = "hidden";
     alertBox.setAttribute("aria-hidden", "true");
 }
 
@@ -17,23 +17,23 @@ async function doLogin(e) {
 
     let u = await login(username, password);
 
-    if(u["error"] || !u["users"]) {      //Error DB / Connection
-        alertBox.style.display = "block";
+    if (u["error"] || !u["users"]) { //Error DB / Connection
+        alertBox.style.display = "flex";
         alertBox.setAttribute("aria-hidden", "false");
-        alertBox.innerHTML="¡Error de conexión!";
+        alertBox.innerHTML = "¡Error de conexión!";
     }
 
-    if(u["users"] == "" && u["users"]) { //Incorrect login
-        alertBox.style.display = "block";
+    if (u["users"] == "" && u["users"]) { //Incorrect login
+        alertBox.style.display = "flex";
         alertBox.setAttribute("aria-hidden", "false");
-        alertBox.innerHTML="Usuario y/o contraseña incorrectos.";
+        alertBox.innerHTML = "Usuario y/o contraseña incorrectos.";
     }
 
-    if(u["users"] != "" && u["users"]) { //Ok!
-        alertBox.style.display = "none";
+    if (u["users"] != "" && u["users"]) { //Ok!
+        alertBox.style.display = "hidden";
         alertBox.setAttribute("aria-hidden", "true");
         //alertBox.innerHTML="Inicio de sesión correcto, redireccionando...";
-        let userId=u["users"][0]["uuid"];
+        let userId = u["users"][0]["uuid"];
         localStorage.setItem("sessionId", userId);
         setTimeout(function() {
             window.location.replace(loginRedirectPage);
@@ -43,7 +43,7 @@ async function doLogin(e) {
 
 async function doLoadData() {
 
-    
+
     let alertBox = document.querySelectorAll(".alertBox")[0];
     let name = document.querySelector(".name-text");
     let surname = document.querySelector(".surname-text");
@@ -52,40 +52,40 @@ async function doLoadData() {
     let tel = document.querySelector(".tel-text");
     let vac = document.querySelector(".vac-text");
     let access_table = document.getElementById("access_data");
-    
-    let userId = localStorage.getItem("sessionId");
-    
 
-    if(userId == null)
+    let userId = localStorage.getItem("sessionId");
+
+
+    if (userId == null)
         return;
-    
+
     let u = await loadUserData(userId);
     let f = await loadUserAccess(userId, 0, 0);
-    alertBox.innerHTML="";
-    if(u["error"] || !u["users"] || f["error"] || !f["access_log"]) {  //Error DB / Connection
-        alertBox.style.display = "block";
+    alertBox.innerHTML = "";
+    if (u["error"] || !u["users"] || f["error"] || !f["access_log"]) { //Error DB / Connection
+        alertBox.style.display = "flex";
         alertBox.setAttribute("aria-hidden", "false");
-        alertBox.innerHTML="¡Error de conexión!";
+        alertBox.innerHTML = "¡Error de conexión!";
     }
-    
-    
-    if(u["users"] != "" && u["users"]) { //Ok!
-        alertBox.style.display = "none";
+
+
+    if (u["users"] != "" && u["users"]) { //Ok!
+        alertBox.style.display = "hidden";
         alertBox.setAttribute("aria-hidden", "true");
         name.innerHTML = u["users"][0]["name"];
         surname.innerHTML = u["users"][0]["surname"];
         email.innerHTML = u["users"][0]["email"];
         username.innerHTML = u["users"][0]["username"];
         tel.innerHTML = u["users"][0]["phone"];
-        if(!u["users"][0]["tel"])
+        if (!u["users"][0]["tel"])
             vac.innerHTML = "No";
         else vac.innerHTML = "Sí";
 
-        let qrcodeText = "{"+u["users"][0]["name"]+"},{"+u["users"][0]["surname"]+"},{"+u["users"][0]["uuid"]+"}";
+        let qrcodeText = "{" + u["users"][0]["name"] + "},{" + u["users"][0]["surname"] + "},{" + u["users"][0]["uuid"] + "}";
 
-        let qrcode =new QRCode(document.getElementById("qrcode"), {
+        let qrcode = new QRCode(document.getElementById("qrcode"), {
             text: qrcodeText,
-            width:128,
+            width: 128,
             height: 128,
             colorDark: "#000000",
             colorLight: "#ffffff",
@@ -93,19 +93,19 @@ async function doLoadData() {
         });
     }
 
-    if(f["access_log"] != null && f["access_log"]) { // Ok!
-        f["access_log"]= f["access_log"].sort((function (a, b) { return new Date(b.timestamp) - new Date(a.timestamp) }));
+    if (f["access_log"] != null && f["access_log"]) { // Ok!
+        f["access_log"] = f["access_log"].sort((function(a, b) { return new Date(b.timestamp) - new Date(a.timestamp) }));
 
-        if(f["access_log"].length <= 0) {
-            alertBox.style.display = "block";
+        if (f["access_log"].length <= 0) {
+            alertBox.style.display = "flex";
             alertBox.setAttribute("aria-hidden", "true");
             alertBox.innerHTML += "No hay datos del usuario";
-        }else {
-            alertBox.style.display = "none";
+        } else {
+            alertBox.style.display = "hidden";
             alertBox.setAttribute("aria-hidden", "false");
-        } 
+        }
 
-        for(let i = 0; i < f["access_log"].length; i++) {
+        for (let i = 0; i < f["access_log"].length; i++) {
             let nrow = document.createElement("tr");
             nrow.setAttribute("role", "row");
             let nc_type = document.createElement("td");
@@ -129,7 +129,7 @@ async function doLoadData() {
             access_table.appendChild(nrow);
         }
     }
-    
+
 }
 
 async function doSignUp(e) {
@@ -151,34 +151,34 @@ async function doSignUp(e) {
 
     doCheckSignUpForm(w);
 
-    if(!(username.length > 0 && name.length >= 4 && surname.length > 0 && password == passwordConfirm && email == emailConfirm && password.length >= 8 && email.length > 0 && !w))
+    if (!(username.length > 0 && name.length >= 4 && surname.length > 0 && password == passwordConfirm && email == emailConfirm && password.length >= 8 && email.length > 0 && !w))
         return;
 
-    alertBox.innerHTML="";
-    
+    alertBox.innerHTML = "";
+
     let u = await addUser(username, password, name, surname, phone, email, is_vaccinated);
 
-    if(u["error"] || !u["insert_users_one"]) {                 //Error DB / Connection
-        alertBox.style.display = "block";
+    if (u["error"] || !u["insert_users_one"]) { //Error DB / Connection
+        alertBox.style.display = "flex";
         alertBox.setAttribute("aria-hidden", "false");
-        alertBox.innerHTML="¡Error de conexión!";
+        alertBox.innerHTML = "¡Error de conexión!";
     }
 
-    if(u["insert_users_one"] == "" && u["insert_users_one"]) { //Incorrect sign up
-        alertBox.style.display = "block";
+    if (u["insert_users_one"] == "" && u["insert_users_one"]) { //Incorrect sign up
+        alertBox.style.display = "flex";
         alertBox.setAttribute("aria-hidden", "false");
-        alertBox.innerHTML="Usuario y/o contraseña incorrectos.";
+        alertBox.innerHTML = "Usuario y/o contraseña incorrectos.";
     }
 
-    if(u["insert_users_one"] != "" && u["insert_users_one"]) { //Ok!
-        alertBox.style.display = "none";
+    if (u["insert_users_one"] != "" && u["insert_users_one"]) { //Ok!
+        alertBox.style.display = "hidden";
         alertBox.setAttribute("aria-hidden", "true");
         //alertBox.innerHTML="Registro correcto, redireccionando...";
         setTimeout(function() {
             window.location.replace(homePage);
         }, 0);
     }
-    
+
 }
 
 async function doCheckUsernameExists(username) { //goldenbird345
@@ -189,13 +189,13 @@ async function doCheckUsernameExists(username) { //goldenbird345
     let u = await fetchUsers();
     let exists = false;
 
-    if(u["error"] || !u["users"]) {      //Error DB / Connection
-        alertBox.style.display = "block";
+    if (u["error"] || !u["users"]) { //Error DB / Connection
+        alertBox.style.display = "flex";
         alertBox.setAttribute("aria-hidden", "false");
-        alertBox.innerHTML="¡Error de conexión!";
+        alertBox.innerHTML = "¡Error de conexión!";
     }
 
-    if(u["users"] != "" && u["users"]) { //Ok!
+    if (u["users"] != "" && u["users"]) { //Ok!
         u["users"].forEach(user => {
             if (user['username'] == username) {
                 username_error.innerHTML = "¡El nombre de usuario ya existe!";
@@ -205,7 +205,7 @@ async function doCheckUsernameExists(username) { //goldenbird345
         });
     }
 
-    if(!exists) {
+    if (!exists) {
         username_field.style.borderColor = "green";
     }
 
@@ -217,10 +217,10 @@ function checkPasswords() {
     let passwordConfirm = document.getElementById("input-password-confirm");
     let pass_confirm_error = document.querySelector(".password-confirm-error");
 
-    if(password.value != passwordConfirm.value) {
+    if (password.value != passwordConfirm.value) {
         pass_confirm_error.innerHTML = "¡Las contraseñas no coinciden!";
         passwordConfirm.style.borderColor = "red";
-    }else {
+    } else {
         pass_confirm_error.innerHTML = "";
         passwordConfirm.style.borderColor = "green";
     }
@@ -231,10 +231,10 @@ function checkEmails() {
     let emailConfirm = document.getElementById("input-email-confirm");
     let email_confirm_error = document.querySelector(".email-confirm-error");
 
-    if(email.value != emailConfirm.value) {
+    if (email.value != emailConfirm.value) {
         email_confirm_error.innerHTML = "¡Los emails no coinciden!";
         emailConfirm.style.borderColor = "red";
-    }else{
+    } else {
         email_confirm_error.innerHTML = "";
         emailConfirm.style.borderColor = "green";
     }
@@ -252,44 +252,44 @@ function doCheckSignUpForm(w) {
     let pass_error = document.querySelector(".password-error");
     let email_error = document.querySelector(".email-error");
 
-    if(username.value.length < 4) {
+    if (username.value.length < 4) {
         username_error.innerHTML = "¡El campo del nombre de usuario tiene que tener al menos 4 carácteres!";
         username.style.borderColor = "red";
-    }else{
-        if(!w) //Username not exists
+    } else {
+        if (!w) //Username not exists
             username.style.borderColor = "green";
         else
             username.style.borderColor = "red";
     }
 
-    if(name.value.length <= 0) {
+    if (name.value.length <= 0) {
         name_error.innerHTML = "¡El campo del nombre no puede estar vacío!";
         name.style.borderColor = "red";
-    }else{
+    } else {
         name_error.innerHTML = "";
         name.style.borderColor = "green";
     }
 
-    if(surname.value.length <= 0) {
+    if (surname.value.length <= 0) {
         surname_error.innerHTML = "¡El campo de los apellidos no puede estar vacío!";
         surname.style.borderColor = "red";
-    }else{
+    } else {
         surname_error.innerHTML = "";
         surname.style.borderColor = "green";
     }
 
-    if(password.value.length < 8) {
+    if (password.value.length < 8) {
         pass_error.innerHTML = "¡La contraseña tiene que tener al menos 8 carácteres!";
         password.style.borderColor = "red";
-    }else{
+    } else {
         pass_error.innerHTML = "";
         password.style.borderColor = "green";
     }
 
-    if(email.value.length <= 0) {
+    if (email.value.length <= 0) {
         email_error.innerHTML = "¡El email no puede estar vacío!";
         email.style.borderColor = "red";
-    }else{
+    } else {
         email_error.innerHTML = "";
         email.style.borderColor = "green";
     }
@@ -303,7 +303,7 @@ function doLogOut(e) {
 }
 
 function clearError(e) {
-    let s = document.querySelector("."+(e.id).replace("input-", "") + "-error");
+    let s = document.querySelector("." + (e.id).replace("input-", "") + "-error");
     s.innerHTML = "";
 }
 
